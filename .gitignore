@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+*.log
+# Build output is attached to GitHub Releases, not committed.
+main.js
