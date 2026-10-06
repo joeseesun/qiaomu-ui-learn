@@ -1,7 +1,7 @@
 // Learn review layer: per-item rating + tags + comment stored in plugin data,
 // plus one-click export to an Obsidian markdown note and insert-into-editor.
 
-import { Notice, normalizePath, setIcon } from "obsidian";
+import { Notice, normalizePath, setIcon, TFile } from "obsidian";
 import { t } from "./i18n";
 import type { LearnEntry, LearnStyle } from "./learnui-data";
 import type QiaomuProductGalleryPlugin from "./main";
@@ -172,8 +172,10 @@ async function writeNote(plugin: QiaomuProductGalleryPlugin, fileName: string, m
     }
   }
   const existing = vault.getAbstractFileByPath(path);
-  if (existing) {
-    await vault.modify(existing as any, md);
+  if (existing instanceof TFile) {
+    await vault.modify(existing, md);
+  } else if (existing) {
+    throw new Error(`A folder already exists at the note path: ${path}`);
   } else {
     await vault.create(path, md);
   }

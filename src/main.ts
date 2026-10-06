@@ -210,7 +210,7 @@ export default class QiaomuProductGalleryPlugin extends Plugin {
     const existing = workspace.getLeavesOfType(VIEW_TYPE_GALLERY);
     const leaf = existing.length > 0 ? existing[0] : workspace.getLeaf("tab");
     await leaf.setViewState({ type: VIEW_TYPE_GALLERY, active: true });
-    workspace.revealLeaf(leaf);
+    await workspace.revealLeaf(leaf);
     const view = leaf.view;
     return view instanceof GalleryView ? view : null;
   }

@@ -2,7 +2,7 @@
 
 import { Notice } from "obsidian";
 import { t } from "./i18n";
-import { demoFile, LearnKind } from "./learnui-data";
+import { LearnKind } from "./learnui-data";
 import type QiaomuProductGalleryPlugin from "./main";
 
 export function copyText(text: string, message?: string): void {
@@ -37,7 +37,7 @@ export async function renderDemoFrame(
     return;
   }
   loading.remove();
-  const iframe = document.createElement("iframe");
+  const iframe = createEl("iframe");
   iframe.className = "qpg-demo-iframe";
   iframe.setAttribute("sandbox", "allow-scripts");
   iframe.srcdoc = html;
@@ -71,7 +71,7 @@ export async function mountSpecimen(slot: HTMLElement, plugin: QiaomuProductGall
     slot.addClass("is-missing");
     return;
   }
-  const iframe = document.createElement("iframe");
+  const iframe = createEl("iframe");
   iframe.className = "qpg-spec-iframe";
   iframe.setAttribute("sandbox", "allow-scripts");
   iframe.setAttribute("tabindex", "-1");
