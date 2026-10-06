@@ -1,0 +1,28 @@
+{
+  "name": "qiaomu-ui-learn",
+  "version": "1.0.0",
+  "description": "Learn UI design: browse 13,500+ real designs, a bilingual UI dictionary, a style atlas and an aesthetic quiz, then take notes and copy replication prompts for vibe coding.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "build:learnui": "node scripts/build-learnui.mjs",
+    "check-i18n": "node scripts/check-i18n.mjs"
+  },
+  "keywords": [
+    "obsidian",
+    "obsidian-plugin",
+    "ui-design",
+    "design-inspiration",
+    "vibe-coding"
+  ],
+  "author": "向阳乔木",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "builtin-modules": "^4.0.0",
+    "esbuild": "^0.24.2",
+    "obsidian": "^1.8.7",
+    "typescript": "^5.7.2"
+  }
+}

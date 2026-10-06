@@ -1,0 +1,21 @@
+name: Bug report / 问题反馈
+description: Something doesn't work as expected / 功能异常
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / 发生了什么
+      description: Steps to reproduce, what you expected, what you saw. Screenshots help. / 复现步骤、期望结果、实际结果，最好附截图。
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version / 插件版本
+      placeholder: "1.0.0"
+  - type: input
+    id: env
+    attributes:
+      label: Obsidian version & OS / Obsidian 版本与系统
+      placeholder: "1.8.x · macOS / Windows / iOS"
