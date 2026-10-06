@@ -510,7 +510,7 @@ export class GalleryView extends ItemView {
     this.gridEl.removeClass("is-hidden");
 
     const slice = this.pool.slice(this.rendered, Math.min(this.rendered + BATCH, RENDER_CAP));
-    const frag = document.createDocumentFragment();
+    const frag = new DocumentFragment();
     slice.forEach((item, i) => frag.appendChild(this.buildCard(item, reset ? i : 0)));
     this.gridEl.appendChild(frag);
     this.rendered += slice.length;
@@ -574,11 +574,11 @@ export class GalleryView extends ItemView {
     const catEl = meta.createDiv("qpg-card-cat");
     catEl.setText(item.cat.n);
     setCatTip(catEl, item.cat.s, item.cat.n);
-    card.addEventListener("click", () => this.openItem(item));
+    card.addEventListener("click", () => { void this.openItem(item); });
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        this.openItem(item);
+        void this.openItem(item);
       }
     });
     return card;

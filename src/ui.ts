@@ -62,7 +62,7 @@ export function segmented<T extends string>(
   const ro = new ResizeObserver(() => place());
   ro.observe(el);
   buttons.forEach((b) => ro.observe(b));
-  requestAnimationFrame(place);
+  (el.ownerDocument.defaultView ?? window).requestAnimationFrame(place);
 
   return { el, set };
 }
@@ -112,7 +112,7 @@ export function installTooltips(root: HTMLElement): () => void {
     x = Math.max(8, Math.min(x, window.innerWidth - tw - 8));
     y = Math.max(8, Math.min(y, window.innerHeight - th - 8));
     // `position: fixed` may be relative to a transformed ancestor: measure the real origin.
-    tip.style.transform = "translate(0px, 0px)";
+    tip.style.removeProperty("transform");
     const o = tip.getBoundingClientRect();
     tip.style.transform = `translate(${Math.round(x - o.left)}px, ${Math.round(y - o.top)}px)`;
   };

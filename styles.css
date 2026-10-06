@@ -2303,6 +2303,7 @@ body:not(.is-mobile):has(.workspace-leaf.mod-active .workspace-leaf-content[data
 
 /* ================= Instant tooltip ================= */
 .qpg-tip {
+  transform: translate(0px, 0px);
   position: fixed;
   top: 0;
   left: 0;

@@ -8,7 +8,7 @@
 >
 > **Learn UI design inside Obsidian:** 13,500+ real designs, a bilingual UI dictionary, a 44-style atlas and an aesthetic quiz — take notes as you go, and copy a replication prompt for your coding agent.
 
-![version](https://img.shields.io/github/v/release/joeseesun/qiaomu-ui-learn?label=version) ![license](https://img.shields.io/github/license/joeseesun/qiaomu-ui-learn) ![min](https://img.shields.io/badge/Obsidian-%E2%89%A5%201.4.0-7c3aed)
+![version](https://img.shields.io/github/v/release/joeseesun/qiaomu-ui-learn?label=version) ![license](https://img.shields.io/github/license/joeseesun/qiaomu-ui-learn) ![min](https://img.shields.io/badge/Obsidian-%E2%89%A5%201.7.2-7c3aed)
 
 **已验证：** 在 Obsidian 桌面端实机运行；`npm run build` 与 `npm run check-i18n` 通过；`main.js` 内置全部数据，只拷贝 `main.js` / `manifest.json` / `styles.css` 三个文件即可使用（社区安装同样如此）。
 
