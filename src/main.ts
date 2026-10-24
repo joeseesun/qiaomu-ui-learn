@@ -1,3 +1,6 @@
+import { UpdateNotes } from './update-notes';
+import { UPDATE_ENTRIES } from './update-notes-release';
+import { lang as updateLocale } from './i18n';
 import { Notice, Plugin, WorkspaceLeaf } from "obsidian";
 import { Catalog, FlatItem, flatten } from "./catalog";
 import { initI18n, t } from "./i18n";
@@ -51,6 +54,7 @@ const FIT_SCRIPT =
   "addEventListener('load',function(){setTimeout(fit,50);setTimeout(fit,500)});addEventListener('resize',fit);})();</script>";
 
 export default class QiaomuProductGalleryPlugin extends Plugin {
+  updateNotes!: UpdateNotes;
   settings: QpgSettings = DEFAULT_SETTINGS;
   catalog: Catalog | null = null;
   catalogError = false;
@@ -107,6 +111,7 @@ export default class QiaomuProductGalleryPlugin extends Plugin {
       },
     });
 
+    this.updateNotes = new UpdateNotes(this, UPDATE_ENTRIES, updateLocale);
     this.addSettingTab(new GallerySettingTab(this.app, this));
 
     // Qiaomu Home integration: recent designs, browse action, local search.

@@ -170,6 +170,7 @@ export class GallerySettingTab extends PluginSettingTab {
     this.support(containerEl);
 
     this.section(containerEl, t("settings.about"));
+    this.plugin.updateNotes.addButton(containerEl);
     new Setting(containerEl).setName(t("settings.about.source")).setDesc(t("settings.about.source.desc"));
     new Setting(containerEl).setName(t("settings.license")).setDesc(t("settings.license.desc"));
   }
